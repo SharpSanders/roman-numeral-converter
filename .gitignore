@@ -1,0 +1,27 @@
+
+---
+
+# ✅ .gitignore
+
+```gitignore
+# VS Code settings
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS junk files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Env files (if added in future)
+.env
+.env.*
+
+# Node-related (if tools added later)
+node_modules/
+dist/
