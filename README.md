@@ -1,55 +1,48 @@
 # Roman Numeral Converter
 
-A beautifully designed Roman numeral converter that transforms any integer from **1 to 3999** into its Roman numeral equivalent.  
-Includes clean validation, accessibility features, and a warm desert-inspired UI.
+A responsive Roman numeral converter that transforms any integer from **1 to 3999** into its Roman numeral equivalent.
 
-Built to practice algorithms, form validation, semantic HTML, and polished UI/UX.
+Built with semantic HTML, custom CSS, and vanilla JavaScript to demonstrate algorithmic thinking, validation logic, and accessible UI design.
 
----
+## Live Demo
+https://sharpsanders.github.io/roman-numeral-converter/
 
-## Demo
-
-The interface includes:
-
-- A large title and tagline:  
-  **“Turn numbers into classics — from 1 to 3999.”**
-- An input section with:
-  - A numeric text field  
-  - A **Convert** button  
-  - Helpful examples (e.g., 9 → IX, 16 → XVI)
-- A styled output area that updates instantly with the conversion result.
-- A footer with the current year and a playful programming joke.
-- A “Skip to main content” accessibility link.
-
----
-
-## Tech Stack
-
-- **HTML** – semantic, accessible markup structure  
-- **CSS** – custom theme with gradients, clay/sand color palette, shadows, and responsive text scaling  
-- **JavaScript** – conversion algorithm + input validation + dynamic output  
+![Roman Numeral Converter Screenshot](./img/Screenshot-roman-numeral-converter.png)
 
 ---
 
 ## Features
 
-- Converts numbers **1 to 3999** into proper Roman numerals.
+- Converts numbers **1–3999** into proper Roman numerals
 - Full validation:
   - Empty input
-  - Non-numeric input
+  - Non-numeric values
   - Decimals
-  - Too small (<1)
-  - Too large (>3999)
-- Uses an efficient **descending-value Roman numeral algorithm**.
-- Press **Enter** to convert (keyboard support).
-- Footer year auto-updates based on system time.
-- Works with light & dark mode (CSS `prefers-color-scheme`).
+  - Out-of-range numbers
+- Keyboard support (press **Enter** to convert)
+- Dynamic output rendering
+- Auto-updating footer year
+- Light/Dark mode support using `prefers-color-scheme`
+- Accessible design:
+  - `aria-live="polite"` result updates
+  - Skip-to-content link
+  - Mobile-friendly numeric input
 
 ---
 
-## How It Works (Algorithm)
+## Tech Stack
 
-### 1. Roman Numeral Table
+- **HTML5** – semantic structure + accessibility
+- **CSS3** – responsive layout, custom theme, fluid scaling
+- **JavaScript (ES6+)** – validation, algorithm, DOM updates
+
+No frameworks. No libraries.
+
+---
+
+## How It Works (Algorithm Overview)
+
+The converter uses a **descending-value subtraction algorithm**.
 
 ```js
 const pairs = [
@@ -67,85 +60,60 @@ const pairs = [
   { val: 4,    sym: "IV" },
   { val: 1,    sym: "I" },
 ];
-2. Conversion Logic
-js
-Copy code
-let res = "";
+
+let result = "";
 let n = num;
 
 for (const { val, sym } of pairs) {
   while (n >= val) {
-    res += sym;
+    result += sym;
     n -= val;
   }
   if (n === 0) break;
 }
-return res;
-The algorithm subtracts the largest Roman numeral values first and appends symbols until the number is reduced to zero — ensuring correct Roman numeral formation.
 
-3. Validation
-The script checks:
+return result;
+The algorithm subtracts the largest Roman numeral values first and appends symbols until the number is reduced to zero, ensuring correct Roman numeral formation.
 
-Empty input
+Validation Logic
+The application prevents:
 
-Non-numbers
+Empty submissions
 
-Decimals
+Non-numeric input
 
-Out-of-range numbers
+Decimal values
 
-And provides meaningful error messages accordingly.
+Numbers less than 1
 
-4. Accessibility & UX
-aria-live="polite" ensures screen readers announce results.
+Numbers greater than 3999
 
-Focusable Skip to main content link.
-
-Input uses inputmode="numeric" to bring up numeric keyboards on mobile.
-
-How to Use
-Type a number between 1 and 3999.
-
-Click Convert or press Enter.
-
-The Roman numeral result displays below the form.
-
-If the input is invalid, an error message appears instead.
-
-Examples:
-
-9 → IX
-
-16 → XVI
-
-649 → DCXLIX
+Clear, user-friendly error messages are displayed dynamically.
 
 Project Structure
-text
-Copy code
 roman-numeral-converter/
-├── index.html     # Structure, form, semantics, ARIA roles
-├── styles.css     # Theme, layout, responsiveness, dark mode
-└── script.js      # Validation, converter algorithm, dynamic rendering
+├── index.html
+├── styles.css
+└── script.js
 What I Practiced
-Writing clean validation logic
+Writing efficient transformation algorithms
 
-Implementing an efficient Roman numeral conversion algorithm
+Defensive input validation
 
-Creating responsive, accessible UI
+Separating logic from UI rendering
 
-Using aria-live, aria-atomic, and “Skip to content” practices
+Using aria-live for accessible dynamic updates
 
-CSS design with gradients, shadows, and fluid text scaling
+Designing responsive, theme-based UI with pure CSS
 
-Future Improvements
-Add history of previous conversions
+Possible Improvements
+Conversion history
 
-Add copy-to-clipboard button for results
+Copy-to-clipboard result
 
-Add animations when the conversion result updates
+Bidirectional conversion (Roman → Number)
 
-Convert Roman numerals back to numbers (bi-directional converter)
+Result animation
 
-Author
-Created by Trevyn Sanders.
+Built by Trevyn Sanders
+Better Endeavors LLC
